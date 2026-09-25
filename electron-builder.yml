@@ -1,0 +1,29 @@
+appId: com.yaraav.todo
+productName: Yaraav To Do
+copyright: Copyright © 2026 Yaraav
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+asar: true
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+  icon: build/icon.png
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Yaraav To Do
+portable:
+  artifactName: YaraavToDo-Portable-${version}.${ext}
+extraMetadata:
+  main: dist-electron/main.js

@@ -1,0 +1,46 @@
+{
+  "name": "yaraav-todo",
+  "version": "1.0.0",
+  "description": "Yaraav To Do — Offline desktop productivity app (Tasks, Habits, Goals, Study Timer, Counselor Notebook, Gamification, Smart Reports)",
+  "author": "Yaraav",
+  "main": "dist-electron/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"npm:electron:dev\"",
+    "electron:dev": "cross-env NODE_ENV=development tsc -p electron/tsconfig.json && node -e \"require('fs').copyFileSync('electron/schema.sql','dist-electron/schema.sql')\" && cross-env NODE_ENV=development electron .",
+    "build:renderer": "vite build",
+    "build:electron": "tsc -p electron/tsconfig.json && node -e \"require('fs').copyFileSync('electron/schema.sql','dist-electron/schema.sql')\"",
+    "build": "npm run build:renderer && npm run build:electron",
+    "build:win": "npm run build && electron-builder --win --x64",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "zustand": "^4.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7",
+    "uuid": "^9.0.1",
+    "jspdf": "^2.5.1",
+    "html2canvas": "^1.4.1",
+    "crypto-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/uuid": "^9.0.8",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3"
+  }
+}

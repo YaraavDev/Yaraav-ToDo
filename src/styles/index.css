@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Inter", "Vazirmatn", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-fa { font-family: "Vazirmatn", "Inter", sans-serif; }
+.font-en { font-family: "Inter", "Vazirmatn", sans-serif; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #71767B55; border-radius: 9999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+input[type="checkbox"] { accent-color: currentColor; }
